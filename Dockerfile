@@ -23,7 +23,7 @@ ENV DATABASE_URL=$DATABASE_URL
 
 COPY . .
 
-RUN npm install && npm run build
+RUN npm ci && npm run build
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
