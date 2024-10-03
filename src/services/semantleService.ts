@@ -8,9 +8,14 @@ const guessWord = async (word: string) => {
 
   if (res.status !== 200) throw new Error(`${res.status}: ${res.statusText}`);
 
-  if (res.data.similarity === null) throw new Error("unknown word");
+  if (res.data.length !== 1)
+    throw new Error(
+      `error: recieved ${res.data.length} guess results instead of 1`
+    );
 
-  return res.data;
+  if (res.data[0].similarity === null) throw new Error("unknown word");
+
+  return res.data[0];
 };
 
 export default guessWord;
