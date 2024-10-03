@@ -9,7 +9,6 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist",
-    "postinstall": "npx prisma migrate deploy",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
